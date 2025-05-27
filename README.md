@@ -85,11 +85,11 @@ All of these steps are executed with following function in evaluation.ipynb.
 evaluate_ensemble_best(swat_label, np.array(swat_scores), 1e-3, False)
 ```
 
-The result show a picture of detection results (a blue line) with label (a orange one) as follows.
-![image](https://github.com/user-attachments/assets/3ed8fef9-96da-4507-ab51-00fcefb280c5)
+The result show a picture of detection results (a blue line) with label (a orange one) as follows.  
+![image](https://github.com/user-attachments/assets/3ed8fef9-96da-4507-ab51-00fcefb280c5)  
 
-Also, it presents the conventional F1, [point-adjust](https://dl.acm.org/doi/abs/10.1145/3178876.3185996), and [eTaPR](https://dl.acm.org/doi/10.1145/3477314.3507024).
-![image](https://github.com/user-attachments/assets/d01174da-4b89-4de6-a560-7672b2fc3dbc)
+Also, it presents the conventional F1, [point-adjust](https://dl.acm.org/doi/abs/10.1145/3178876.3185996), and [eTaPR](https://dl.acm.org/doi/10.1145/3477314.3507024).  
+![image](https://github.com/user-attachments/assets/d01174da-4b89-4de6-a560-7672b2fc3dbc)  
 
 
 
