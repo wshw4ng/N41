@@ -1,16 +1,16 @@
 # Neighbors for One target (N41)
 
-We propose a novel approach termed "neighbors for one target (N41)," which improves anomaly detection accuracy for multivariate time-series data.
+This repository provides a novel approach termed "neighbors for one target (N41)," which improves anomaly detection accuracy for multivariate time-series data.
 N41 redefines both the output and input of any detection model by "single target feature" and "its neighboring features," respectively.
 Using a single target feature improves accuracy by allowing the model to focus solely on minimizing the training error (loss function) for that specific feature.
 In contrast, defining multiple features as outputs distributes the training error across them, potentially leading to less effective error reduction for some features.
 Incorporating neighboring features with patterns similar to the target feature further enhances accuracy by including relevant features.
 
 This repository includes:  
-(1) N41.py: An anomaly detection model built on a stacked GRU with N41  
-(2) evaluation.ipynb: A script for evaluating results of N41 based models  
-(3) similarity: A directory containing pairwise similarity values between features  
-(4) evaluation: A directory containing functions for evaluations   
+- `N41.py`: An anomaly detection model built on a stacked GRU with N41  
+- `evaluation.ipynb`: A script for evaluating results of N41 based models  
+- `similarity`: A directory containing pairwise similarity values between features  
+- `evaluation`: A directory containing functions for evaluations   
 
 
 For evaluations, you should install the [eTaPR package](https://github.com/wshw4ng/eTaPR).
@@ -68,18 +68,19 @@ Gamma is set from 0.0 to 1.0.
 
 As a result, the N41 script writes numpy files named after the index number of each target feature.
 The files are stored in a directory called "result_{dataset name}".
-For example, a file named "0.npy" contains anomaly scores from the model whose target feature is 0-th feature.
+For example, a file named `0.npy` contains anomaly scores from the model whose target feature is 0-th feature.
 
 
 ## Evaluation
 
-It is important to consider the false positive rate (FPR) practically, but the FPR is overlooked in existing work.
-In the evaluation, we restrict the maximum value of the FPR such as 0.001 or 0.002, which means 144 or 288 seconds of false alarms are allowed in a day (Actually, it is still generous constraint).
-So, we select the best threshold (one or more) that satisfies the predefined FPR.
+While the false positive rate (FPR) is an important factor in practice, it is often overlooked in existing work.
+In our evaluation, we limit the maximum FPR to a small value (e.g., 0.001 or 0.002), which corresponds to allowing 144 or 288 seconds of false alarms per day — a relatively generous constraint.
+We then select one or more thresholds that satisfy the predefined FPR condition.
 
-With the ensemble model, the threshold selection would be np-hard, which is resemble to the napsack problem.
-So, we introduce three heuristic algorithms in the eval-util.py.
-After running three algorithms, we choose the thresholds brings the best eTaF1 score.
+For ensemble models, selecting an optimal set of thresholds becomes an NP-hard problem, similar to the knapsack problem.
+To address this, we introduce three heuristic algorithms implemented in `eval-util.py`.
+After running all three algorithms, we choose the set of thresholds that yields the highest eTaF1 score.
+
 All of these steps are executed with following function in evaluation.ipynb.
 ```
 evaluate_ensemble_best(swat_label, np.array(swat_scores), 1e-3, False)
