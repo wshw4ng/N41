@@ -90,8 +90,10 @@ The result show a picture of detection results (a blue line) with label (a orang
 ![image](https://github.com/user-attachments/assets/3ed8fef9-96da-4507-ab51-00fcefb280c5)  
 
 Also, it presents the conventional F1, [point-adjust](https://dl.acm.org/doi/abs/10.1145/3178876.3185996), and [eTaPR](https://dl.acm.org/doi/10.1145/3477314.3507024).  
+
 ![image](https://github.com/user-attachments/assets/d01174da-4b89-4de6-a560-7672b2fc3dbc)  
 
 
+eTaRd represents the ratio of detected anomalies to the total number of anomalies.
 
 
