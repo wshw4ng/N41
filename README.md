@@ -64,7 +64,16 @@ python N41.py --gamma 0.3 --data hai22
 ```
 
 If you want to run N41 with SWaT, you input "--data swat".
-Gamma is set from 0.0 to 1.0.
+
+Gamma can be set from 0.0 to 1.0.
+In our test, 0.3 brings the highest F1 scores on HAI22.04 dataset.
+The below figure shows the accuracy of N41-G with varying values of the parameter Gamma on the HAI22.04 dataset.
+For values of Gamma below 0.3, the inclusion of less relevant features hinders the model’s ability to accurately predict the target feature values.
+Conversely, as Gamma increases beyond 0.3, the F1 score declines because useful features are increasingly excluded from the input.
+In summary, including too many input features increase learning complexity, while including too few leads to insufficient information for accurate prediction.
+
+<img width="475" height="300" alt="image" src="https://github.com/user-attachments/assets/4d78853e-61e0-467e-8657-2a424e7aa83d" />
+
 
 As a result, the N41 script writes numpy files named after the index number of each target feature.
 The files are stored in a directory called "result_{dataset name}".
